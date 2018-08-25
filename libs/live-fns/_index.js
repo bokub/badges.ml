@@ -28,3 +28,7 @@ module.exports = {
   'uptime-robot': require('./uptime-robot.js'),
   'vs-marketplace': require('./vs-marketplace.js')
 }
+
+module.exports = {
+  'brackets': require('./brackets.js')
+}

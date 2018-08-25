@@ -1,8 +1,9 @@
 {
-  "name": "badgen-service",
+  "name": "brackets-badges",
   "private": true,
   "description": "Badge generating service",
   "author": "Amio <amio.cn@gmail.com>",
+  "contributors": ["bokub (https://github.com/bokub)"],
   "license": "ISC",
   "scripts": {
     "lint": "standard",
@@ -10,9 +11,9 @@
     "pretest": "npm run lint",
     "test": "tap test/*.js --reporter spec -j12",
     "start": "node service.js",
-    "predeploy": "now -T amio inspect badgen.net && now rm badgen-service --safe -y -T amio || true",
-    "deploy": "now -T amio -e API_HOST='https://api.badgen.net' -e GH_TOKEN='@badgen-gh-token' -e SENTRY_URI='@badgen-sentry-uri' -e TRACKING_GA='@badgen-tracking-ga'",
-    "postdeploy": "now -T amio alias"
+    "predeploy": "now inspect badges.ml && now rm brackets-badges --safe -y || true",
+    "deploy": "now -e API_HOST='https://api.badges.ml'",
+    "postdeploy": "now alias"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -20,7 +21,9 @@
     "byte-size": "^4.0.3",
     "cheerio": "^1.0.0-rc.2",
     "chrome-webstore": "^1.0.0",
+    "cron": "^1.3.0",
     "date-fns": "^1.29.0",
+    "memory-cache": "^0.2.0",
     "micro": "^9.3.3",
     "micro-fork": "^0.1.0",
     "millify": "^2.0.1",
