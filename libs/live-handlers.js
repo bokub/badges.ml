@@ -4,7 +4,7 @@ const liveFns = require('./live-fns/_index.js')
 const serveBadge = require('./serve-badge.js')
 const liveFetcher = require('./live-fetcher.js')
 
-const { API_HOST } = process.env
+const API_HOST = 'https://api.badges.ml'
 const apiFetcher = async url => {
   return axios.get(API_HOST + url).then(
     res => res.data,
@@ -16,7 +16,7 @@ const apiFetcher = async url => {
 }
 
 module.exports = Object.entries(liveFns).map(([name, fn]) => {
-  return get(`/${name}/*`, async (req, res) => {
+  return get(`/*`, async (req, res) => {
     const {
       subject = name,
       status = 'unknown',
@@ -29,7 +29,7 @@ module.exports = Object.entries(liveFns).map(([name, fn]) => {
         : liveFetcher(name, fn, req.params['*'])
     )
 
-    const style = req.headers.host === 'flat.badgen.net' ? 'flat' : undefined
+    const style = req.headers.host === 'flat.badges.ml' ? 'flat' : undefined
     req.params = { subject, status, color, style }
     serveBadge(req, res, {
       code: httpCode,

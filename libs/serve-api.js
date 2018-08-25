@@ -12,7 +12,7 @@ const sMaxAges = {
 }
 
 const apiHandlers = Object.entries(liveFunctions).map(([name, fn]) => {
-  return get(`/${name}/*`, async (req, res) => {
+  return get(`/*`, async (req, res) => {
     res.setHeader('Cache-Control', `${CACHE_CONTROL}, s-maxage=${sMaxAges[name] || '120'}`)
     const result = await liveFetcher(name, fn, req.params['*'])
     let status = 200

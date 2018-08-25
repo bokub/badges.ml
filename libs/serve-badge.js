@@ -7,7 +7,7 @@ const CACHE_CONTROL = `public, max-age=60, stale-while-revalidate=86400, stale-i
 module.exports = (req, res, options = {}) => {
   const { code = 200, maxAge = '86400' } = options
 
-  const hostStyle = req.headers.host === 'flat.badgen.net' ? 'flat' : undefined
+  const hostStyle = req.headers.host === 'flat.badges.ml' ? 'flat' : undefined
   const { subject, status, color } = req.params
   const { style, label, list, icon } = req.query
 

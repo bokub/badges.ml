@@ -1,7 +1,7 @@
 const serveMarked = require('serve-marked')
 
-module.exports = serveMarked('libs/index.md', {
-  title: 'Badgen - Fast badge generating service',
+module.exports = serveMarked('libs/index-brackets.md', {
+  title: 'Badges.ml - badges for your brackets extensions',
   preset: 'merri',
   inlineCSS: `
     body { max-width: inherit }
@@ -41,7 +41,7 @@ module.exports = serveMarked('libs/index.md', {
     #the-end { margin: 5rem auto; text-align: center; text-shadow: 0 0 4px rgba(0,0,0,0.1) }
 
     #footer { width: 100vw; margin: 0 -1rem; background-color: #333; color: #CCC }
-    #foo-content { max-width: 960px; margin: 0 auto; padding: 2rem 1rem; letter-spacing: 0.5px }
+    #foo-content { max-width: 960px; margin: 0 auto; padding: 1rem 1rem 2rem; letter-spacing: 0.5px }
     #foo-content { display: grid; grid-template-columns: 1fr 1fr }
     #foo-content h3 { font-weight: 300 }
     #foo-content img { height: 16px; color: #FFF; opacity: 0.6; margin-right: 8px; position: relative; top: 1px }
@@ -50,24 +50,25 @@ module.exports = serveMarked('libs/index.md', {
     #foo-content aside { padding: 1rem 1rem; display: flex; justify-content: flex-end; align-items: flex-end }
     #foo-content aside a { line-height: 2em; margin-left: 1rem }
   `,
-  beforeHeadEnd: `<link rel="icon" type="image/png" href="/static/favicon.png">`,
+  beforeHeadEnd: `
+    <link rel="icon" type="image/png" href="/static/favicon.png">
+    <meta name="google-site-verification" content="S1eE0CD3g08PkSBvK7cxzrnQl52oXWchy3voONNFNUg" />
+`,
   beforeBodyEnd: `
     <div id="the-end">⚡️</div>
     <div id="footer">
       <div id="foo-content">
         <segment>
-          <h3><img src="/static/badgen-logo-w.svg" />Badgen Service</h3>
+          <h3>Badges.ml</h3>
           <p>
-            built with ♥<br/>
-            by <a href="https://github.com/amio">Amio</a>
-            and awesome <a href="https://github.com/amio/badgen-service/graphs/contributors">contributors</a><br/>
+            a fork of the awesome <a href="https://badgen.net">Badgen Service</a>
+            <br/>
             hosted on <a href="https://zeit.co/now">Now Cloud</a>
           </p>
         </segment>
         <aside>
-          <a href="https://stats.uptimerobot.com/z6nqBfYGB">Status</a>
-          <a href="https://github.com/amio/badgen-service">GitHub</a>
-          <a href="https://twitter.com/badgen_net">Twitter</a>
+          <a href="https://stats.uptimerobot.com/r8QDWt63B/778749989">Status</a>
+          <a href="https://github.com/brackets-extension-badges/badges.ml">GitHub</a>
         </aside>
       </div>
     </div>

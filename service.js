@@ -2,7 +2,6 @@ const micro = require('micro')
 const { router, get } = require('micro-fork')
 const serveStatic = require('./libs/serve-static.js')
 const serveIndex = require('./libs/serve-index.js')
-const serve404 = require('./libs/serve-404.js')
 const serveDocs = require('./libs/serve-docs.js')
 const serveBadge = require('./libs/serve-badge.js')
 const liveHandlers = require('./libs/live-handlers.js')
@@ -23,7 +22,7 @@ const serveStaticBadge = (req, res) => {
 }
 
 const main = router()(
-  get('/*', serve404),
+  // get('/*', serve404),
   get('/', indexHandler),
   get('/static/*', serveStatic),
   get('/docs/:topic', serveDocs),
@@ -34,7 +33,7 @@ const main = router()(
 
 module.exports = (req, res) => {
   switch (req.headers.host) {
-    case 'api.badgen.net':
+    case 'api.badges.ml':
     case '127.0.0.1:3000':
       return serveApi(req, res)
     default:

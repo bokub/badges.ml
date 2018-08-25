@@ -1,12 +1,12 @@
-# api.badgen.net
+# api.badges.ml
 
 Serve badge data as json.
 
-- Same url path schema as badgen.net
-- Mainly for live badges (who needs api for static badge?)
+Same url path schema as badges.ml
 
 ## Examples
 
-- https://api.badgen.net/npm/v/micro
-- https://api.badgen.net/npm/dependents/got
-- https://api.badgen.net/github/dependents-pkg/chalk/chalk
+- https://api.badges.ml/dd/brackets-emmet
+- https://api.badges.ml/dw/brackets-emmet
+- https://api.badges.ml/dt/brackets-emmet
+- https://api.badges.ml/v/brackets-emmet
