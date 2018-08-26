@@ -2,8 +2,6 @@ const micro = require('micro')
 const { router, get } = require('micro-fork')
 const serveStatic = require('./libs/serve-static.js')
 const serveIndex = require('./libs/serve-index.js')
-const serveDocs = require('./libs/serve-docs.js')
-const serveBadge = require('./libs/serve-badge.js')
 const liveHandlers = require('./libs/live-handlers.js')
 const serveApi = require('./libs/serve-api.js')
 const raven = require('./libs/raven.js')
@@ -17,17 +15,9 @@ const indexHandler = (req, res) => {
   }
 }
 
-const serveStaticBadge = (req, res) => {
-  serveBadge(req, res, { maxAge: '31536000' })
-}
-
 const main = router()(
-  // get('/*', serve404),
   get('/', indexHandler),
   get('/static/*', serveStatic),
-  get('/docs/:topic', serveDocs),
-  get('/badge/:subject/:status', serveStaticBadge),
-  get('/badge/:subject/:status/:color', serveStaticBadge),
   ...liveHandlers
 )
 

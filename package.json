@@ -3,7 +3,9 @@
   "private": true,
   "description": "Badge generating service",
   "author": "Amio <amio.cn@gmail.com>",
-  "contributors": ["bokub (https://github.com/bokub)"],
+  "contributors": [
+    "bokub (https://github.com/bokub)"
+  ],
   "license": "ISC",
   "scripts": {
     "lint": "standard",
@@ -18,11 +20,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "badgen": "^2.4.1",
-    "byte-size": "^4.0.3",
-    "cheerio": "^1.0.0-rc.2",
-    "chrome-webstore": "^1.0.0",
     "cron": "^1.3.0",
-    "date-fns": "^1.29.0",
     "memory-cache": "^0.2.0",
     "micro": "^9.3.3",
     "micro-fork": "^0.1.0",
@@ -30,8 +28,7 @@
     "raven": "^2.6.3",
     "semver": "^5.5.1",
     "serve-handler": "^5.0.0",
-    "serve-marked": "^0.3.3",
-    "xml2js": "^0.4.19"
+    "serve-marked": "^0.3.3"
   },
   "devDependencies": {
     "micro-dev": "^3.0.0",

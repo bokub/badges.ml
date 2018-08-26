@@ -61,14 +61,14 @@ module.exports = serveMarked('libs/index-brackets.md', {
         <segment>
           <h3>Badges.ml</h3>
           <p>
-            a fork of the awesome <a href="https://badgen.net">Badgen Service</a>
+            A fork of the awesome <a href="https://badgen.net">Badgen Service</a>
             <br/>
-            hosted on <a href="https://zeit.co/now">Now Cloud</a>
+            Hosted on <a href="https://zeit.co/now">Now Cloud</a>
           </p>
         </segment>
         <aside>
           <a href="https://stats.uptimerobot.com/r8QDWt63B/778749989">Status</a>
-          <a href="https://github.com/brackets-extension-badges/badges.ml">GitHub</a>
+          <a href="https://github.com/bokub/badges.ml">GitHub</a>
         </aside>
       </div>
     </div>
