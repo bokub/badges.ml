@@ -13,9 +13,7 @@
     "pretest": "npm run lint",
     "test": "tap test/*.js --reporter spec -j12",
     "start": "node service.js",
-    "predeploy": "now inspect badges.ml && now rm brackets-badges --safe -y || true",
-    "deploy": "now --public",
-    "postdeploy": "now alias"
+    "deploy": "now -p && now alias && now rm brackets-badges -s -y"
   },
   "dependencies": {
     "axios": "^0.18.0",
