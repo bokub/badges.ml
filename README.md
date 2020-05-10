@@ -1,13 +1,27 @@
 # Badges.ml
 
-[![Response time][response-src]][response-href]
-[![Uptime][uptime-src]][uptime-href]
 [![License][license-src]][license-href]
 [![Code style][standard-src]][standard-href]
 
 > Badges for your brackets extensions
 
 Just type  [`badges.ml`][badges.ml] to use ⚡
+ 
+ ## Service shutdown
+ 
+ `badges.ml` is now in a sunset phase and will soon shut down. It's been a fun few years, but all things must end.
+ 
+ The service provided by `badges.ml` was based on a continuously running server, hosted on the *ZEIT Now 1.0 platform*, which will shut down 7th of august 2020, leaving me with 3 options:
+ 1. Migrate the service to Now 2.0 (would need to setup a database and rewrite everything as serverless functions)
+ 2. Host the service on another platform
+ 3. Shut down the service
+ 
+ I personally don't have the time and energy to invest into the first two solutions, and after more than 3 years, I'd rather stop this project.
+ 
+ Every badge served by this service will now display `badges.ml | service shutdown`, as you can see below.
+ 
+ Thank you to everyone who enjoyed `badges.ml`! 👍
+
  
 ## The badges.ml story
 
@@ -45,23 +59,12 @@ This new badge provider is still retro-compatible with the old badge provider UR
 |`badges.ml/brackets-beautify/version.svg     `|`badges.ml/v/brackets-beautify `|
 
 
-## Deploy to Now
-
-Deploy your own instance of `badges.ml` to [Now][now] with one single command:
-```
-now bokub/badges.ml
-```
-
 
 ## About
 
 Made with ❤ from the awesome [Badgen Service][badgen-service]
 
-[uptime-src]: https://flat.badgen.net/uptime-robot/week/m778749989-833506c8f5b168db2f169307?label=past%20week%20uptime
-[uptime-href]: https://stats.uptimerobot.com/r8QDWt63B/778749989
-[response-src]: https://flat.badgen.net/uptime-robot/response/m778749989-833506c8f5b168db2f169307
-[response-href]: https://stats.uptimerobot.com/r8QDWt63B/778749989
-[license-src]: https://flat.badgen.net/github/license/bokub/badges.ml
+[license-src]: https://flat.badgen.net/github/license/brackets-extension-badges/badges.ml
 [license-href]: LICENSE.md
 [standard-src]: https://flat.badgen.net/badge/code%20style/standard/pink
 [standard-href]: https://standardjs.com

@@ -1,8 +1,51 @@
-const serveMarked = require('serve-marked')
+const fs = require('fs')
+const marked = require('marked')
+const { join } = require('path')
 
-module.exports = serveMarked('libs/index-brackets.md', {
+const presetCSS = fs.readFileSync(join(__dirname, '../node_modules/serve-marked/presets/merri.css'), 'utf8')
+const indexMd = fs.readFileSync(join(__dirname, 'index-shutdown.md'), 'utf8')
+
+const serveMarked = (markdown, helmetOptions) => {
+  const bodyHTML = marked(markdown)
+  return helmet(bodyHTML, helmetOptions)
+}
+
+function helmet (bodyHTML, options = {}) {
+  // Custom body wrapper
+  if (typeof options === 'function') {
+    return options(bodyHTML)
+  }
+
+  const {
+    title = '',
+    inlineCSS = '',
+    contentClassName = 'markdown-body',
+    beforeHeadEnd = '',
+    beforeBodyEnd = ''
+  } = options
+
+  return `<!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width">
+        <title>${title}</title>
+        <style>${presetCSS}</style>
+        <style>${inlineCSS}</style>
+        ${beforeHeadEnd}
+      </head>
+      <body>
+        <div class="${contentClassName}">
+          ${bodyHTML}
+        </div>
+        ${beforeBodyEnd}
+      </body>
+    </html>
+  `
+}
+
+module.exports = serveMarked(indexMd, {
   title: 'Badges.ml - badges for your brackets extensions',
-  preset: 'merri',
   inlineCSS: `
     body { max-width: inherit }
     body > * { width: 960px; margin-left: auto; margin-right: auto; box-sizing: border-box }
@@ -13,12 +56,14 @@ module.exports = serveMarked('libs/index-brackets.md', {
     h1 + p + p a { font: 14px/20px Roboto, sans-serif; text-transform: uppercase; font-weight: 400; letter-spacing: 0.5px }
     h1 + p + p a:hover { color: #777; }
     img { height: 20px }
+    .shutdown { background: #fff8d5; margin: 25px -20px 0; padding: 10px 20px; font: 16px Arial, sans-serif }
+    #service-shutdown { margin-top: 20px }
 
     pre, code { background-color: #EEF2F8; font-weight: 400 }
     pre > code { padding: 0 }
 
-    li { vertical-align: top; font: 16px/32px sans-serif; color: #777 }
-    li code { padding: 0.3em 0.5em; display: pre; color: #333 }
+    ul > li { vertical-align: top; font: 16px/32px sans-serif; color: #777 }
+    ul > li code { padding: 0.3em 0.5em; display: pre; color: #333 }
     a code { color: #06D }
 
     td + td a { font-family: monospace; margin-right: 20rem }
@@ -66,16 +111,16 @@ module.exports = serveMarked('libs/index-brackets.md', {
           <p>
             A fork of the awesome <a href="https://badgen.net">Badgen Service</a>
             <br/>
-            Hosted on <a href="https://zeit.co/now">Now Cloud</a>
+            Hosted on <del>Now Cloud</del> <a href="https://vercel.com/">Vercel</a>
           </p>
         </segment>
         <aside>
           <a href="https://stats.uptimerobot.com/r8QDWt63B/778749989">Status</a>
-          <a href="https://github.com/bokub/badges.ml">GitHub</a>
+          <a href="https://github.com/brackets-extension-badges/badges.ml">GitHub</a>
         </aside>
       </div>
     </div>
-    <a href="https://github.com/bokub/badges.ml" class="github-corner">
+    <a href="https://github.com/brackets-extension-badges/badges.ml" class="github-corner">
       <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
         <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>

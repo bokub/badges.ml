@@ -5,14 +5,19 @@
     "badges.ml",
     "brackets-badges"
   ],
-  "files": [
-    "package-lock.json",
-    "service.js",
-    "static",
-    "libs"
-  ],
-  "engines": {
-    "node": "^10.0.0"
-  },
-  "version": 1
+  "rewrites": [
+    { "source": "/dd/:pkg", "destination": "/api/badge" },
+    { "source": "/dw/:pkg", "destination": "/api/badge" },
+    { "source": "/dt/:pkg", "destination": "/api/badge" },
+    { "source": "/dl/:pkg", "destination": "/api/badge" },
+    { "source": "/v/:pkg", "destination": "/api/badge" },
+
+    { "source": "/:pkg/day.svg", "destination": "/api/badge" },
+    { "source": "/:pkg/week.svg", "destination": "/api/badge" },
+    { "source": "/:pkg/total.svg", "destination": "/api/badge" },
+    { "source": "/:pkg/last-version.svg", "destination": "/api/badge" },
+    { "source": "/:pkg/version.svg", "destination": "/api/badge" },
+
+    { "source": "/", "destination": "/api" }
+  ]
 }

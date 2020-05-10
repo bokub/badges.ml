@@ -9,16 +9,15 @@
   "license": "ISC",
   "scripts": {
     "lint": "standard",
-    "dev": "micro-dev service.js -s",
     "pretest": "npm run lint",
     "test": "tap test/*.js --reporter spec -j12",
-    "start": "node service.js",
     "deploy": "now -p && now alias && now rm brackets-badges -s -y"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "badgen": "^2.4.1",
     "cron": "^1.3.0",
+    "marked": "^1.0.0",
     "memory-cache": "^0.2.0",
     "micro": "^9.3.3",
     "micro-fork": "^0.1.0",
@@ -26,12 +25,12 @@
     "raven": "^2.6.3",
     "semver": "^5.5.1",
     "serve-handler": "^5.0.0",
-    "serve-marked": "^0.3.3"
+    "serve-marked": "^2.0.2"
   },
   "devDependencies": {
     "micro-dev": "^3.0.0",
     "standard": "^11.0.1",
     "supertest": "^3.1.0",
-    "tap": "^12.0.1"
+    "tap": "^14.10.7"
   }
 }
