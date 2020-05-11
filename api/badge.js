@@ -6,7 +6,7 @@ module.exports = (req, res) => {
   res.setHeader('Cache-Control', `${CACHE_CONTROL}, s-maxage=86400`)
 
   if (req.headers.host.indexOf('api.') === 0) {
-    return res.json({ 'subject': 'badges.ml', 'status': 'service shutdown', 'color': 'red' })
+    return res.json({ 'subject': 'badges.ml', 'status': 'unavailable', 'color': 'grey' })
   }
 
   const hostStyle = req.headers.host.indexOf('flat.') === 0 ? 'flat' : undefined
@@ -14,8 +14,8 @@ module.exports = (req, res) => {
   res.setHeader('Content-Type', 'image/svg+xml;charset=utf-8')
   res.send(badgen({
     subject: 'badges.ml',
-    status: 'service shutdown',
-    color: 'red',
+    status: 'unavailable',
+    color: 'grey',
     style: hostStyle
   }))
 }

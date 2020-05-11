@@ -13,13 +13,13 @@ Badges for your brackets extensions
 `badges.ml` is now in a sunset phase and will soon shut down. It's been a fun few years, but all things must end.
 
 The service provided by `badges.ml` was based on a continuously running server, hosted on the *ZEIT Now 1.0 platform*, which will shut down 7th of august 2020, leaving me with 3 options:
-1. Migrate the service to Now 2.0 (would need to setup a database and rewrite everything as serverless functions)
+1. Migrate the service to Now 2.0 (would need to set up a database and rewrite everything as serverless functions)
 2. Host the service on another platform
 3. Shut down the service
 
 I personally don't have the time and energy to invest into the first two solutions, and after more than 3 years, I'd rather stop this project.
 
-Every badge served by this service will now display `badges.ml | service shutdown`, as you can see below.
+Every badge served by this service will now display `badges.ml | unavailable`, as you can see below.
 
 Thank you to everyone who enjoyed `badges.ml`! 👍
 
