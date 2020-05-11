@@ -22,6 +22,7 @@
     "micro": "^9.3.3",
     "micro-fork": "^0.1.0",
     "millify": "^2.0.1",
+    "original-url": "^1.2.3",
     "raven": "^2.6.3",
     "semver": "^5.5.1",
     "serve-handler": "^5.0.0",
